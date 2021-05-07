@@ -170,8 +170,8 @@ jobs:
             ${{ env.img }} \
             bash -exc '${{ env.py }} -m pip install virtualenv && ${{ env.py }} -m venv .env && \
             source .env/bin/activate && \
-            yum install epel-release && \
-            yum install redis && \
+            yum install -y epel-release && \
+            yum install -y redis && \
             sysctl vm.overcommit_memory=1 && \
             echo never > /sys/kernel/mm/transparent_hugepage/enabled && \
             cp /etc/redis.conf /etc/redis.conf.orig && \
