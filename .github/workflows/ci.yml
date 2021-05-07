@@ -173,6 +173,7 @@ jobs:
             yum install -y epel-release && \
             yum install -y redis && \
             cat /etc/redis.conf && \
+            /usr/bin/redis-server /etc/redis.conf --supervised systemd && \
             systemctl start redis && \
             systemctl enable redis && \
             systemctl status redis && \
