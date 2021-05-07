@@ -172,8 +172,9 @@ jobs:
             source .env/bin/activate && \
             yum install -y epel-release && \
             yum install -y redis && \
-            cat /etc/redis.conf && \
-            /usr/bin/redis-server /etc/redis.conf --supervised systemd && \
+            ps -ef | grep redis && \
+            /usr/bin/redis-server /etc/redis.conf --supervised systemd & && \
+            ps -ef | grep redis && \
             systemctl start redis && \
             systemctl enable redis && \
             systemctl status redis && \
