@@ -172,6 +172,7 @@ jobs:
             source .env/bin/activate && \
             yum install -y epel-release && \
             yum install -y redis && \
+            cat /etc/redis.conf && \
             systemctl start redis && \
             systemctl enable redis && \
             systemctl status redis && \
