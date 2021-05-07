@@ -172,13 +172,6 @@ jobs:
             source .env/bin/activate && \
             yum install -y epel-release && \
             yum install -y redis && \
-            sysctl vm.overcommit_memory=1 && \
-            echo never > /sys/kernel/mm/transparent_hugepage/enabled && \
-            cp /etc/redis.conf /etc/redis.conf.orig && \
-            vi /etc/redis.conf && \
-            bind  127.0.0.1 && \
-            bind 10.0.2.15   192.168.0.105 && \
-            port 5000 && \
             systemctl start redis && \
             systemctl enable redis && \
             systemctl status redis && \
