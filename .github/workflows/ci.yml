@@ -175,9 +175,9 @@ jobs:
             ps -ef | grep redis && \
             /usr/bin/redis-server /etc/redis.conf --supervised systemd& \
             ps -ef | grep redis && \
-            systemctl start redis && \
-            systemctl enable redis && \
-            systemctl status redis && \
+            service redis-server status && \
+            service redis-server start && \
+            #systemctl status redis && \
             deactivate'
   
  
