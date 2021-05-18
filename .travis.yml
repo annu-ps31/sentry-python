@@ -9,15 +9,10 @@ services:
 language: python
 
 python:
-  - "2.7"
-  - "pypy"
-  - "3.4"
-  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
-  - "3.9"
-
+  
 env:
   - SENTRY_PYTHON_TEST_POSTGRES_USER=postgres SENTRY_PYTHON_TEST_POSTGRES_NAME=travis_ci_test
 
@@ -58,9 +53,9 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - psql -c 'create database test_travis_ci_test;' -U postgres
 
-install:
-  - pip install codecov tox
-  - make install-zeus-cli
+#install:
+  #- pip install codecov tox
+  #- make install-zeus-cli
 
 script:
   - coverage erase
