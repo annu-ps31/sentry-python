@@ -9,10 +9,15 @@ services:
 language: python
 
 python:
+  - "2.7"
+  - "pypy"
+  - "3.4"
+  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
-  
+  - "3.9"
+
 env:
   - SENTRY_PYTHON_TEST_POSTGRES_USER=postgres SENTRY_PYTHON_TEST_POSTGRES_NAME=travis_ci_test
 
@@ -43,6 +48,10 @@ jobs:
       install: []
       script: make travis-upload-docs
 
+    - python: "3.9"
+      arch: ppc64le
+      dist: bionic
+
 before_install:
   - sudo apt-get install zip
 before_script:
@@ -51,7 +60,7 @@ before_script:
 
 install:
   - pip install codecov tox
-  #- make install-zeus-cli
+  - make install-zeus-cli
 
 script:
   - coverage erase
